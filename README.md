@@ -1,10 +1,4 @@
 # 🎓 Connexa - Plataforma de Grupos de Estudo
-
-![Connexa MVP](https://img.shields.io/badge/Status-MVP%20Ready-success)
-![Node.js](https://img.shields.io/badge/Node.js-18+-green)
-![React](https://img.shields.io/badge/React-18-blue)
-![SQLite](https://img.shields.io/badge/Database-SQLite-lightgrey)
-
 Plataforma colaborativa para criação e gestão de grupos de estudo universitários.
 
 ## 🚀 Funcionalidades Principais
@@ -130,5 +124,6 @@ npm run preview  # Preview do build
 
 
 ## 👨‍💻 Desenvolvido por
+
 | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/132524175?v=4" width=115><br><sub>João Castro</sub>](https://github.com/joaocastro95) |
-| --- | --- | --- | --- |
+| --- |
