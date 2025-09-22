@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const messageRoutes = require('./routes/messages');
 
 // Importar rotas
 const authRoutes = require('./routes/auth');
@@ -17,7 +18,8 @@ app.use(express.json());
 // Rotas da API
 app.use('/api/auth', authRoutes);
 app.use('/api/groups', groupRoutes);
-app.use('/api/notifications', notificationRoutes); 
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/groups', messageRoutes); 
 
 // Rota health check
 app.get('/api/health', (req, res) => {

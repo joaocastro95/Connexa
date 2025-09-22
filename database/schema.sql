@@ -48,8 +48,19 @@ CREATE TABLE IF NOT EXISTS illusion_calculations (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Tabela de Mensagens do Grupo
+CREATE TABLE IF NOT EXISTS group_messages (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES groups(id) ON DELETE CASCADE,
+    user_id INTEGER REFERENCES users(id),
+    message TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Índices para performance
 CREATE INDEX IF NOT EXISTS idx_groups_subject ON groups(subject);
 CREATE INDEX IF NOT EXISTS idx_groups_created_at ON groups(created_at);
 CREATE INDEX IF NOT EXISTS idx_group_members_user ON group_members(user_id);
 CREATE INDEX IF NOT EXISTS idx_group_members_group ON group_members(group_id);
+CREATE INDEX IF NOT EXISTS idx_group_messages_group ON group_messages(group_id);
+CREATE INDEX IF NOT EXISTS idx_group_messages_created ON group_messages(created_at);

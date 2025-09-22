@@ -29,27 +29,48 @@ Plataforma colaborativa para criação e gestão de grupos de estudo universitá
 
 ## 📦 Estrutura do Projeto
 
-connexa-mvp/
-├── backend/ # API Node.js
-│ ├── src/
-│ │ ├── controllers/ # Lógica de negócio
-│ │ ├── middleware/ # Autenticação JWT
-│ │ ├── routes/ # Definição de rotas
-│ │ ├── database.js # Conexão com SQLite
-│ │ └── server.js # Servidor Express
-│ └── package.json
-├── frontend/ # Aplicação React
-│ ├── src/
-│ │ ├── components/ # Componentes reutilizáveis
-│ │ ├── pages/ # Páginas da aplicação
-│ │ ├── services/ # API clients
-│ │ └── App.jsx # Componente principal
-│ ├── index.html
-│ └── package.json
-├── database/ # Banco de dados
-│ ├── connexa.db # Arquivo do SQLite (gerado automaticamente)
-│ └── schema.sql # Schema do banco
-└── README.md
+```
+├── .gitignore
+├── README.md
+├── backend
+    ├── package-lock.json
+    ├── package.json
+    └── src
+    │   ├── controllers
+    │       ├── authController.js
+    │       └── groupController.js
+    │   ├── database.js
+    │   ├── middleware
+    │       └── auth.js
+    │   ├── routes
+    │       ├── auth.js
+    │       ├── groups.js
+    │       └── notifications.js
+    │   └── server.js
+├── database
+    ├── init.js
+    └── schema.sql
+└── frontend
+    ├── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── src
+        ├── App.jsx
+        ├── components
+        │   └── Navbar.jsx
+        ├── index.css
+        ├── main.jsx
+        ├── pages
+        │   ├── Dashboard.jsx
+        │   ├── GroupCreate.jsx
+        │   ├── GroupSearch.jsx
+        │   ├── Login.jsx
+        │   └── Register.jsx
+        └── services
+        │   ├── api.js
+        │   └── auth.js
+    └── vite.config.js
+```
 
 --------------- 
 
@@ -64,6 +85,7 @@ connexa-mvp/
 git clone https://github.com/joaocastro95/Connexa.git
 cd Connexa
 
+
 ## 2. Configure o Backend
 
 ### Entre na pasta do backend
@@ -74,6 +96,7 @@ npm install
 
 ### Inicie o servidor de desenvolvimento
 npm run dev
+
 
 ## 3. Configure o Frontend
 
@@ -86,10 +109,14 @@ npm install
 ### Inicie o servidor de desenvolvimento
 npm run dev
 
+
 ## 4. Acesse a aplicação
 Abra http://localhost:3000 no navegador.
 
+
 --------------- 
+
+
 
 ## 👤 Primeiro Acesso
 - Clique em "Cadastre-se aqui" na página de login
@@ -110,7 +137,10 @@ Abra http://localhost:3000 no navegador.
 - GET /api/notifications - Listar notificações
 - PUT /api/notifications/:id/read - Marcar como lida
 
+
 --------------- 
+
+
 
 ## 🚀 Scripts Disponíveis
 ### Backend
@@ -121,6 +151,8 @@ npm start        # Modo produção
 npm run dev      # Servidor de desenvolvimento
 npm run build    # Build para produção
 npm run preview  # Preview do build
+
+
 
 
 ## 👨‍💻 Desenvolvido por

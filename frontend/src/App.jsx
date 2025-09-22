@@ -7,6 +7,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import GroupSearch from './pages/GroupSearch';
 import GroupCreate from './pages/GroupCreate';
+import GroupDetails from './pages/GroupDetails'; // ✅ Já está importado
 import './index.css';
 
 const PrivateRoute = ({ children }) => {
@@ -35,6 +36,15 @@ function App() {
               element={
                 <PrivateRoute>
                   <GroupSearch />
+                </PrivateRoute>
+              } 
+            />
+            {/* ✅ ADICIONE ESTA ROTA AQUI */}
+            <Route 
+              path="/groups/:groupId" 
+              element={
+                <PrivateRoute>
+                  <GroupDetails />
                 </PrivateRoute>
               } 
             />

@@ -45,4 +45,9 @@ export const notificationsAPI = {
   markAsRead: (id) => api.put(`/notifications/${id}/read`),
 };
 
+export const messagesAPI = {
+  send: (groupId, message) => api.post(`/groups/${groupId}/messages`, { message }),
+  list: (groupId, params) => api.get(`/groups/${groupId}/messages`, { params }),
+};
+
 export default api;

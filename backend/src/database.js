@@ -12,7 +12,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
 });
 
 function initializeDatabase() {
-    // Criar tabelas manualmente (mais seguro)
+    // Criar TODAS as tabelas manualmente
     const createTables = `
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -58,13 +58,21 @@ function initializeDatabase() {
             result DECIMAL(10,2),
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         );
+
+        CREATE TABLE IF NOT EXISTS group_messages (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            group_id INTEGER REFERENCES groups(id) ON DELETE CASCADE,
+            user_id INTEGER REFERENCES users(id),
+            message TEXT NOT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
     `;
 
     db.exec(createTables, (err) => {
         if (err) {
             console.error('❌ Erro ao criar tabelas:', err);
         } else {
-            console.log('✅ Tabelas criadas com sucesso!');
+            console.log('✅ Todas as tabelas criadas com sucesso!');
             
             // Criar índices
             db.exec(`
@@ -72,6 +80,8 @@ function initializeDatabase() {
                 CREATE INDEX IF NOT EXISTS idx_groups_created_at ON groups(created_at);
                 CREATE INDEX IF NOT EXISTS idx_group_members_user ON group_members(user_id);
                 CREATE INDEX IF NOT EXISTS idx_group_members_group ON group_members(group_id);
+                CREATE INDEX IF NOT EXISTS idx_group_messages_group ON group_messages(group_id);
+                CREATE INDEX IF NOT EXISTS idx_group_messages_created ON group_messages(created_at);
             `, (idxErr) => {
                 if (idxErr) {
                     console.error('❌ Erro ao criar índices:', idxErr);
