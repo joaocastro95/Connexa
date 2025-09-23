@@ -38,13 +38,15 @@ Plataforma colaborativa para criação e gestão de grupos de estudo universitá
     └── src
     │   ├── controllers
     │       ├── authController.js
-    │       └── groupController.js
+    │       ├── groupController.js
+    │       └── messageController.js
     │   ├── database.js
     │   ├── middleware
     │       └── auth.js
     │   ├── routes
     │       ├── auth.js
     │       ├── groups.js
+    │       ├── messages.js
     │       └── notifications.js
     │   └── server.js
 ├── database
@@ -57,12 +59,14 @@ Plataforma colaborativa para criação e gestão de grupos de estudo universitá
     ├── src
         ├── App.jsx
         ├── components
+        │   ├── GroupChat.jsx
         │   └── Navbar.jsx
         ├── index.css
         ├── main.jsx
         ├── pages
         │   ├── Dashboard.jsx
         │   ├── GroupCreate.jsx
+        │   ├── GroupDetails.jsx
         │   ├── GroupSearch.jsx
         │   ├── Login.jsx
         │   └── Register.jsx
